@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock - Practical 11</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #00695c;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #00695c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .clock-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .clock-title {
+            color: #00695c;
+            margin-top: 0;
+        }
+
+        .digital-clock {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #00695c;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .date-display {
+            font-size: 1.5rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .timezone {
+            font-size: 1.2rem;
+            color: #777;
+        }
+
+        .code-container {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .code-container h2 {
+            margin-top: 0;
+            color: #00695c;
+        }
+
+        pre {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .note {
+            background-color: #e0f2f1;
+            border-left: 4px solid #00695c;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .note h3 {
+            margin-top: 0;
+            color: #00695c;
+        }
+
+        footer {
+            background-color: #00695c;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Digital Clock</h1>
+    </header>
+
+    <div class="container">
+        <a href="../index.html#practicals" class="back-link">← Back to Portfolio</a>
+
+        <div class="clock-container">
+            <h2 class="clock-title">Current Time</h2>
+            
+            <div id="clock" class="digital-clock">00:00:00</div>
+            <div id="date" class="date-display">Loading date...</div>
+            <div id="timezone" class="timezone">Timezone: Loading...</div>
+            
+            <p>This clock shows the current time in your local timezone.</p>
+        </div>
+
+        <div class="note">
+            <h3>JavaScript Implementation</h3>
+            <p>This is a JavaScript implementation of a digital clock that updates in real-time. In a server environment, this could also be implemented using PHP to display the server's time.</p>
+        </div>
+
+        <div class="code-container">
+            <h2>JavaScript Code</h2>
+            <pre><code>// Function to update the clock
+function updateClock() {
+    const now = new Date();
+    
+    // Format the time (HH:MM:SS)
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    
+    // Format the date (Day, Month Date, Year)
+    const options = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    };
+    const dateString = now.toLocaleDateString('en-US', options);
+    
+    // Get timezone
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    
+    // Update the DOM
+    document.getElementById('clock').textContent = timeString;
+    document.getElementById('date').textContent = dateString;
+    document.getElementById('timezone').textContent = `Timezone: ${timezone}`;
+}
+
+// Update the clock immediately
+updateClock();
+
+// Update the clock every second
+setInterval(updateClock, 1000);</code></pre>
+        </div>
+
+        <div class="code-container" style="margin-top: 2rem;">
+            <h2>PHP Version (For Reference)</h2>
+            <pre><code>&lt;?php
+// Set the timezone
+date_default_timezone_set('Asia/Kolkata');
+
+// Get the current time
+$currentTime = date('H:i:s');
+
+// Get the current date
+$currentDate = date('l, F j, Y');
+
+// Get the timezone
+$timezone = date_default_timezone_get();
+
+// Display the time and date
+echo '&lt;div class="digital-clock"&gt;' . $currentTime . '&lt;/div&gt;';
+echo '&lt;div class="date-display"&gt;' . $currentDate . '&lt;/div&gt;';
+echo '&lt;div class="timezone"&gt;Timezone: ' . $timezone . '&lt;/div&gt;';
+?&gt;</code></pre>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Srujal Audarya | Practical 11: Digital Clock</p>
+    </footer>
+
+    <script>
+        // Function to update the clock
+        function updateClock() {
+            const now = new Date();
+            
+            // Format the time (HH:MM:SS)
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            
+            // Format the date (Day, Month Date, Year)
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            const dateString = now.toLocaleDateString('en-US', options);
+            
+            // Get timezone
+            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            
+            // Update the DOM
+            document.getElementById('clock').textContent = timeString;
+            document.getElementById('date').textContent = dateString;
+            document.getElementById('timezone').textContent = `Timezone: ${timezone}`;
+        }
+
+        // Update the clock immediately
+        updateClock();
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>

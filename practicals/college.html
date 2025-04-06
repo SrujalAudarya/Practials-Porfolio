@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSGMCE - College Website</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        header {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .logo img {
+            max-width: 90px;
+            max-height: 90px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+        
+        .subtitle {
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+        
+        nav {
+            background-color: #004080;
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            display: inline-block;
+        }
+        
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #003366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://www.ssgmce.ac.in/assets/images/slider/slider-1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            color: #003366;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: #004080;
+        }
+        
+        ul {
+            list-style-type: disc;
+            padding-left: 2rem;
+        }
+        
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .department-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .department {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faculty-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .faculty {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .library-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .library-card {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 1.5rem;
+            margin: 1rem;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="https://studyriserr.com/images/logo/17129484101659598093SSGMCEFullNameVirticalColourLogo01.png" alt="SSGMCE Logo">
+            </div>
+            <div>
+                <h1>Shri Sant Gajanan Maharaj College of Engineering</h1>
+                <p class="subtitle">Accredited by NAAC with 'A' Grade | Approved by AICTE, New Delhi</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#departments">Departments</a></li>
+            <li><a href="#faculty">Faculty</a></li>
+            <li><a href="#library">Library</a></li>
+            <li><a href="#facilities">Facilities</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h2>Excellence in Engineering Education</h2>
+        <p>Empowering students with knowledge, skills, and values to become successful engineers and responsible citizens.</p>
+    </div>
+
+    <div class="container">
+        <a href="../index.html#practicals" class="back-link">← Back to Portfolio</a>
+
+        <section id="about">
+            <h2>About SSGMCE</h2>
+            <p>Shri Sant Gajanan Maharaj College of Engineering, Shegaon was established in 1983 by Shri Gajanan Maharaj Sansthan, Shegaon. The college is approved by AICTE, New Delhi and affiliated to Sant Gadge Baba Amravati University, Amravati.</p>
+
+            <p>The college is accredited by NAAC with 'A' Grade and has been consistently ranked among the top engineering colleges in the region. With state-of-the-art infrastructure, experienced faculty, and a strong focus on academic excellence, SSGMCE
+                provides a conducive environment for learning and growth.</p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">40+</div>
+                    <div>Years of Excellence</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5000+</div>
+                    <div>Students</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div>Faculty Members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">20000+</div>
+                    <div>Alumni Network</div>
+                </div>
+            </div>
+
+            <h3>Vision</h3>
+            <p>To be a premier technical institute striving for excellence in imparting technical education and research for the development of the nation.</p>
+
+            <h3>Mission</h3>
+            <ul>
+                <li>To impart quality technical education to the students.</li>
+                <li>To create conducive environment for teaching, learning, and research.</li>
+                <li>To prepare students to face global challenges.</li>
+                <li>To inculcate ethical values among students.</li>
+            </ul>
+        </section>
+
+        <section id="departments">
+            <h2>Departments</h2>
+            <p>SSGMCE offers undergraduate and postgraduate programs in various engineering disciplines through its well-established departments.</p>
+
+            <div class="department-list">
+                <div class="department">
+                    <h3>Computer Science & Engineering</h3>
+                    <p>Established in 1986, the department offers B.Tech and M.Tech programs in Computer Science and Engineering.</p>
+                    <ul>
+                        <li>B.Tech in Computer Science & Engineering (Intake: 120)</li>
+                        <li>M.Tech in Computer Science & Engineering (Intake: 18)</li>
+                        <li>State-of-the-art computer labs with latest software and hardware</li>
+                        <li>Research areas: AI, Machine Learning, Data Science, Cloud Computing</li>
+                    </ul>
+                </div>
+
+                <div class="department">
+                    <h3>Electronics & Telecommunication Engineering</h3>
+                    <p>The department offers programs focused on electronics, communication systems, and signal processing.</p>
+                    <ul>
+                        <li>B.Tech in Electronics & Telecommunication Engineering (Intake: 60)</li>
+                        <li>M.Tech in Electronics & Telecommunication (Intake: 18)</li>
+                        <li>Well-equipped laboratories for practical training</li>
+                        <li>Research areas: VLSI, Embedded Systems, Wireless Communication</li>
+                    </ul>
+                </div>
+
+                <div class="department">
+                    <h3>Mechanical Engineering</h3>
+                    <p>One of the oldest departments, offering comprehensive education in mechanical engineering.</p>
+                    <ul>
+                        <li>B.Tech in Mechanical Engineering (Intake: 60)</li>
+                        <li>M.Tech in Mechanical Engineering (Intake: 18)</li>
+                        <li>Modern workshops and laboratories</li>
+                        <li>Research areas: Thermal Engineering, CAD/CAM, Robotics</li>
+                    </ul>
+                </div>
+
+                <div class="department">
+                    <h3>Electrical Engineering</h3>
+                    <p>The department focuses on power systems, electrical machines, and control systems.</p>
+                    <ul>
+                        <li>B.Tech in Electrical Engineering (Intake: 60)</li>
+                        <li>M.Tech in Electrical Power Systems (Intake: 18)</li>
+                        <li>Modern laboratories with latest equipment</li>
+                        <li>Research areas: Power Systems, Renewable Energy, Smart Grid</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="faculty">
+            <h2>Faculty</h2>
+            <p>SSGMCE has a team of highly qualified and experienced faculty members dedicated to providing quality education and mentoring to students.</p>
+
+            <div class="faculty-list">
+                <div class="faculty">
+                    <h3>Dr. S. P. Moghe</h3>
+                    <p><strong>Principal</strong></p>
+                    <p><strong>Qualifications:</strong> Ph.D. in Mechanical Engineering</p>
+                    <p><strong>Experience:</strong> 30+ years in teaching and administration</p>
+                </div>
+
+                <div class="faculty">
+                    <h3>Dr. M. D. Kokate</h3>
+                    <p><strong>Professor and Head</strong><br>Department of Computer Science & Engineering</p>
+                    <p><strong>Qualifications:</strong> Ph.D. in Computer Science</p>
+                    <p><strong>Specialization:</strong> Artificial Intelligence, Machine Learning</p>
+                    <p><strong>Experience:</strong> 20+ years in teaching and research</p>
+                </div>
+
+                <div class="faculty">
+                    <h3>Dr. P. R. Deshmukh</h3>
+                    <p><strong>Professor and Head</strong><br>Department of Electronics & Telecommunication</p>
+                    <p><strong>Qualifications:</strong> Ph.D. in Electronics</p>
+                    <p><strong>Specialization:</strong> VLSI Design, Signal Processing</p>
+                    <p><strong>Experience:</strong> 22+ years in teaching and research</p>
+                </div>
+
+                <div class="faculty">
+                    <h3>Dr. V. S. Patil</h3>
+                    <p><strong>Professor and Head</strong><br>Department of Mechanical Engineering</p>
+                    <p><strong>Qualifications:</strong> Ph.D. in Mechanical Engineering</p>
+                    <p><strong>Specialization:</strong> Thermal Engineering, Fluid Mechanics</p>
+                    <p><strong>Experience:</strong> 18+ years in teaching and research</p>
+                </div>
+
+                <div class="faculty">
+                    <h3>Dr. A. M. Badar</h3>
+                    <p><strong>Professor and Head</strong><br>Department of Civil Engineering</p>
+                    <p><strong>Qualifications:</strong> Ph.D. in Structural Engineering</p>
+                    <p><strong>Specialization:</strong> Structural Analysis, Earthquake Engineering</p>
+                    <p><strong>Experience:</strong> 15+ years in teaching and research</p>
+                </div>
+
+                <div class="faculty">
+                    <h3>Dr. S. B. Warkad</h3>
+                    <p><strong>Professor and Head</strong><br>Department of Electrical Engineering</p>
+                    <p><strong>Qualifications:</strong> Ph.D. in Electrical Engineering</p>
+                    <p><strong>Specialization:</strong> Power Systems, Renewable Energy</p>
+                    <p><strong>Experience:</strong> 20+ years in teaching and research</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="library">
+            <h2>Library</h2>
+            <p>The central library at SSGMCE is a hub of knowledge and resources, supporting the academic and research needs of students and faculty.</p>
+
+            <div class="library-info">
+                <div class="library-card">
+                    <h3>Collections</h3>
+                    <ul>
+                        <li>Over 60,000 books covering all engineering disciplines</li>
+                        <li>Access to 15,000+ e-books</li>
+                        <li>Subscription to 100+ national and international journals</li>
+                        <li>Digital repository of thesis and dissertations</li>
+                        <li>Technical reports and conference proceedings</li>
+                    </ul>
+                </div>
+
+                <div class="library-card">
+                    <h3>Facilities</h3>
+                    <ul>
+                        <li>Spacious reading halls with seating capacity of 400</li>
+                        <li>Digital section with 60 computer terminals</li>
+                        <li>Wi-Fi enabled premises</li>
+                        <li>Photocopying and printing services</li>
+                        <li>Discussion rooms for group study</li>
+                    </ul>
+                </div>
+
+                <div class="library-card">
+                    <h3>Digital Resources</h3>
+                    <ul>
+                        <li>IEEE Xplore Digital Library</li>
+                        <li>DELNET</li>
+                        <li>National Digital Library</li>
+                        <li>NPTEL Video Lectures</li>
+                        <li>e-Shodhsindhu consortium</li>
+                    </ul>
+                </div>
+
+                <div class="library-card">
+                    <h3>Library Hours</h3>
+                    <ul>
+                        <li>Monday to Saturday: 8:00 AM to 12:00 AM</li>
+                        <li>Sunday: 9:00 AM to 5:00 PM</li>
+                        <li>Extended hours during examination periods</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="facilities">
+            <h2>Facilities</h2>
+            <p>SSGMCE provides excellent infrastructure and facilities to support academic, co-curricular, and extracurricular activities.</p>
+
+            <h3>Academic Facilities</h3>
+            <ul>
+                <li>Well-equipped laboratories for all departments</li>
+                <li>Smart classrooms with modern teaching aids</li>
+                <li>Central computing facility with high-speed internet</li>
+                <li>Seminar halls and conference rooms</li>
+                <li>Language laboratory for communication skills development</li>
+            </ul>
+
+            <h3>Sports Facilities</h3>
+            <ul>
+                <li>Large playground for outdoor sports</li>
+                <li>Indoor sports complex</li>
+                <li>Gymnasium with modern equipment</li>
+                <li>Facilities for cricket, football, basketball, volleyball, etc.</li>
+            </ul>
+
+            <h3>Hostel Facilities</h3>
+            <ul>
+                <li>Separate hostels for boys and girls</li>
+                <li>Well-furnished rooms with basic amenities</li>
+                <li>Mess facility with nutritious food</li>
+                <li>Wi-Fi connectivity</li>
+                <li>Recreation rooms and common areas</li>
+            </ul>
+
+            <h3>Other Facilities</h3>
+            <ul>
+                <li>Canteen serving hygienic food at reasonable rates</li>
+                <li>Medical center with qualified staff</li>
+                <li>Bank and ATM facility</li>
+                <li>Stationery store</li>
+                <li>Transportation facility</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Shri Sant Gajanan Maharaj College of Engineering, Shegaon | Practical 2: College Website</p>
+        <p><a href="../index.html#practicals" style="color: white; text-decoration: underline;">Back to Portfolio</a></p>
+    </footer>
+</body>
+
+</html>

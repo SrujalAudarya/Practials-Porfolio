@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hometown - Practical 6</title>
+    <style>
+        /* Internal CSS */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0f7fa; /* Attractive light blue background */
+            color: #00363a;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #006064;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 1rem 0;
+            color: #006064;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .hometown-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .text-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .image-content {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .hometown-image {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #00838f;
+            border-bottom: 2px solid #00838f;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            background-color: #b2ebf2;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .attractions {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .attractions h2 {
+            text-align: center;
+            border-bottom: none;
+        }
+
+        .attractions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .attraction-item {
+            background-color: #e0f7fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .attraction-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .attraction-item h3 {
+            color: #006064;
+            margin-top: 0;
+        }
+
+        footer {
+            background-color: #006064;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hometown-content {
+                flex-direction: column;
+            }
+            
+            .image-content {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Nagpur</h1>
+        <p class="subtitle">The Orange City of India</p>
+    </header>
+
+    <div class="container">
+        <a href="../index.html#practicals" class="back-link">← Back to Portfolio</a>
+
+        <div class="hometown-content">
+            <div class="text-content">
+                <h2>About Nagpur</h2>
+                <p>Nagpur is a vibrant city located in the heart of India, in the state of Maharashtra. Known as the <span class="highlight">"Orange City"</span> due to its famous oranges, Nagpur is the third largest city in Maharashtra and the winter capital of the state.</p>
+                
+                <p>With a rich cultural heritage and historical significance, Nagpur has been an important political and commercial center since ancient times. The city is known for its pleasant climate, wide roads, and greenery, making it one of the cleanest and most livable cities in India.</p>
+                
+                <p>Nagpur is also famous for being the headquarters of the Rashtriya Swayamsevak Sangh (RSS) and has played a significant role in India's freedom movement. The city is strategically located at the geographic center of India, earning it the nickname <span class="highlight">"Zero Mile City"</span>.</p>
+            </div>
+            
+            <div class="image-content">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Nagpur_Zero_Mile_Mark.jpg/1200px-Nagpur_Zero_Mile_Mark.jpg" alt="Nagpur Zero Mile Marker" class="hometown-image">
+                <p><em>The Zero Mile Stone in Nagpur, marking the geographical center of India</em></p>
+            </div>
+        </div>
+
+        <h2>History and Culture</h2>
+        <p>Nagpur has a rich historical background dating back to ancient times. The city was founded by the Gond King Bakht Buland Shah in the early 18th century. Later, it became the capital of the Bhonsle dynasty and eventually came under British rule.</p>
+        
+        <p>The culture of Nagpur is a beautiful blend of various traditions and customs. The city celebrates numerous festivals with great enthusiasm, including Diwali, Ganesh Chaturthi, and Durga Puja. The local cuisine is famous for its spicy flavors, with dishes like Saoji curry and Poha being popular specialties.</p>
+
+        <div class="attractions">
+            <h2>Popular Attractions</h2>
+            <div class="attractions-grid">
+                <div class="attraction-item">
+                    <h3>Deekshabhoomi</h3>
+                    <p>The largest hollow stupa in the world and a sacred monument of Buddhism where Dr. B.R. Ambedkar converted to Buddhism along with his followers.</p>
+                </div>
+                
+                <div class="attraction-item">
+                    <h3>Futala Lake</h3>
+                    <p>A beautiful lake with musical fountains and a promenade, perfect for evening walks and relaxation.</p>
+                </div>
+                
+                <div class="attraction-item">
+                    <h3>Dragon Palace Temple</h3>
+                    <p>A Buddhist temple known for its beautiful architecture and peaceful atmosphere.</p>
+                </div>
+                
+                <div class="attraction-item">
+                    <h3>Nagpur Central Museum</h3>
+                    <p>Houses a rich collection of artifacts, sculptures, and exhibits showcasing the region's history and culture.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Economy and Development</h2>
+        <p>Nagpur is rapidly developing as a major commercial and industrial hub in central India. The city is known for its textile industry, orange cultivation, and as a center for coal mining in the region. In recent years, Nagpur has seen significant infrastructure development, including the Metro Rail project and the Multi-modal International Cargo Hub and Airport at Nagpur (MIHAN).</p>
+        
+        <p>The city is also an important educational center with numerous prestigious institutions, including the Indian Institute of Information Technology, Visvesvaraya National Institute of Technology, and Government Medical College.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Srujal Audarya | Practical 6: Hometown Webpage with Internal CSS</p>
+    </footer>
+</body>
+</html>

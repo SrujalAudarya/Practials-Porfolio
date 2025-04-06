@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Counter - Practical 10</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #6a1b9a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #6a1b9a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .counter-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .counter-title {
+            color: #6a1b9a;
+            margin-top: 0;
+        }
+
+        .counter-value {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #6a1b9a;
+            margin: 1.5rem 0;
+        }
+
+        .counter-text {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .code-container {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .code-container h2 {
+            margin-top: 0;
+            color: #6a1b9a;
+        }
+
+        pre {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .note h3 {
+            margin-top: 0;
+            color: #856404;
+        }
+
+        footer {
+            background-color: #6a1b9a;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Visitor Counter</h1>
+    </header>
+
+    <div class="container">
+        <a href="../index.html#practicals" class="back-link">← Back to Portfolio</a>
+
+        <div class="counter-container">
+            <h2 class="counter-title">Website Visitor Count</h2>
+            
+            <div id="counter" class="counter-value">0</div>
+            
+            <p class="counter-text">Thank you for visiting our website!</p>
+            <p class="counter-text">You are visitor number <strong id="visitor-number">0</strong>.</p>
+        </div>
+
+        <div class="note">
+            <h3>JavaScript Implementation</h3>
+            <p>This is a JavaScript implementation of a visitor counter that uses localStorage to persist the count between visits. In a real-world scenario, this would typically be implemented using server-side code (like PHP) with a database to store the count.</p>
+        </div>
+
+        <div class="code-container">
+            <h2>JavaScript Code</h2>
+            <pre><code>// JavaScript implementation of a visitor counter using localStorage
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the current count from localStorage or initialize to 0
+    let count = localStorage.getItem('visitorCount');
+    
+    // If count doesn't exist yet, initialize it
+    if (count === null) {
+        count = 0;
+    } else {
+        count = parseInt(count);
+    }
+    
+    // Increment the count for this visit
+    count++;
+    
+    // Save the updated count back to localStorage
+    localStorage.setItem('visitorCount', count);
+    
+    // Display the count
+    document.getElementById('counter').textContent = count;
+    document.getElementById('visitor-number').textContent = count;
+});</code></pre>
+        </div>
+
+        <div class="code-container" style="margin-top: 2rem;">
+            <h2>PHP Version (For Reference)</h2>
+            <pre><code>&lt;?php
+// File to store the visitor count
+$counterFile = "counter.txt";
+
+// Check if the file exists, create it if it doesn't
+if (!file_exists($counterFile)) {
+    $handle = fopen($counterFile, "w");
+    fwrite($handle, "0");
+    fclose($handle);
+}
+
+// Read the current count
+$handle = fopen($counterFile, "r");
+$count = fread($handle, filesize($counterFile));
+fclose($handle);
+
+// Increment the count
+$count = intval($count) + 1;
+
+// Write the new count back to the file
+$handle = fopen($counterFile, "w");
+fwrite($handle, $count);
+fclose($handle);
+
+// Display the count
+echo '&lt;div class="counter-value"&gt;' . $count . '&lt;/div&gt;';
+?&gt;</code></pre>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Srujal Audarya | Practical 10: Visitor Counter</p>
+    </footer>
+
+    <script>
+        // JavaScript implementation of a visitor counter using localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the current count from localStorage or initialize to 0
+            let count = localStorage.getItem('visitorCount');
+            
+            // If count doesn't exist yet, initialize it
+            if (count === null) {
+                count = 0;
+            } else {
+                count = parseInt(count);
+            }
+            
+            // Increment the count for this visit
+            count++;
+            
+            // Save the updated count back to localStorage
+            localStorage.setItem('visitorCount', count);
+            
+            // Display the count
+            document.getElementById('counter').textContent = count;
+            document.getElementById('visitor-number').textContent = count;
+        });
+    </script>
+</body>
+</html>

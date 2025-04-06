@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Display - Practical 7</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #4a148c;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #4a148c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .date-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .date-display {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4a148c;
+            margin: 1.5rem 0;
+        }
+
+        .time-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #4a148c;
+            margin: 1.5rem 0;
+        }
+
+        .code-container {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .code-container h2 {
+            margin-top: 0;
+            color: #4a148c;
+        }
+
+        pre {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        footer {
+            background-color: #4a148c;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JavaScript Date Display</h1>
+    </header>
+
+    <div class="container">
+        <a href="../index.html#practicals" class="back-link">← Back to Portfolio</a>
+
+        <div class="date-container">
+            <h2>Today's Date and Time</h2>
+            <div id="date" class="date-display">Loading date...</div>
+            <div id="time" class="time-display">Loading time...</div>
+        </div>
+
+        <div class="code-container">
+            <h2>JavaScript Code</h2>
+            <pre><code>// Function to display the current date and time
+function displayDateTime() {
+    const now = new Date();
+    
+    // Format the date
+    const options = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    };
+    const dateString = now.toLocaleDateString('en-US', options);
+    
+    // Format the time
+    const timeString = now.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+    
+    // Update the HTML elements
+    document.getElementById('date').textContent = dateString;
+    document.getElementById('time').textContent = timeString;
+}
+
+// Call the function immediately
+displayDateTime();
+
+// Update the time every second
+setInterval(displayDateTime, 1000);</code></pre>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Srujal Audarya | Practical 7: JavaScript Date Display</p>
+    </footer>
+
+    <script>
+        // Function to display the current date and time
+        function displayDateTime() {
+            const now = new Date();
+            
+            // Format the date
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            const dateString = now.toLocaleDateString('en-US', options);
+            
+            // Format the time
+            const timeString = now.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            
+            // Update the HTML elements
+            document.getElementById('date').textContent = dateString;
+            document.getElementById('time').textContent = timeString;
+        }
+
+        // Call the function immediately
+        displayDateTime();
+
+        // Update the time every second
+        setInterval(displayDateTime, 1000);
+    </script>
+</body>
+</html>

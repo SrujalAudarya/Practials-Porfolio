@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator - Practical 8</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #1565c0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .calculator-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            max-width: 400px;
+            margin: 0 auto 2rem;
+        }
+
+        .calculator-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="number"] {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .operations {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        button {
+            padding: 0.8rem;
+            background-color: #1565c0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0d47a1;
+        }
+
+        .result-container {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .result {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1565c0;
+        }
+
+        .code-container {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .code-container h2 {
+            margin-top: 0;
+            color: #1565c0;
+        }
+
+        pre {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        footer {
+            background-color: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Simple JavaScript Calculator</h1>
+    </header>
+
+    <div class="container">
+        <a href="../index.html#practicals" class="back-link">← Back to Portfolio</a>
+
+        <div class="calculator-container">
+            <div class="calculator-form">
+                <div class="input-group">
+                    <label for="num1">First Number:</label>
+                    <input type="number" id="num1" placeholder="Enter first number">
+                </div>
+                
+                <div class="input-group">
+                    <label for="num2">Second Number:</label>
+                    <input type="number" id="num2" placeholder="Enter second number">
+                </div>
+                
+                <div class="operations">
+                    <button type="button" onclick="calculate('add')">Addition (+)</button>
+                    <button type="button" onclick="calculate('subtract')">Subtraction (-)</button>
+                    <button type="button" onclick="calculate('multiply')">Multiplication (×)</button>
+                    <button type="button" onclick="calculate('divide')">Division (÷)</button>
+                </div>
+                
+                <div class="result-container">
+                    <p>Result:</p>
+                    <div id="result" class="result">0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="code-container">
+            <h2>JavaScript Code</h2>
+            <pre><code>function calculate(operation) {
+    // Get input values
+    const num1 = parseFloat(document.getElementById('num1').value);
+    const num2 = parseFloat(document.getElementById('num2').value);
+    
+    // Check if inputs are valid numbers
+    if (isNaN(num1) || isNaN(num2)) {
+        alert('Please enter valid numbers in both fields');
+        return;
+    }
+    
+    let result;
+    
+    // Perform the selected operation
+    switch(operation) {
+        case 'add':
+            result = num1 + num2;
+            break;
+        case 'subtract':
+            result = num1 - num2;
+            break;
+        case 'multiply':
+            result = num1 * num2;
+            break;
+        case 'divide':
+            if (num2 === 0) {
+                alert('Cannot divide by zero');
+                return;
+            }
+            result = num1 / num2;
+            break;
+    }
+    
+    // Display the result
+    document.getElementById('result').textContent = result;
+}</code></pre>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Srujal Audarya | Practical 8: JavaScript Calculator</p>
+    </footer>
+
+    <script>
+        function calculate(operation) {
+            // Get input values
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            
+            // Check if inputs are valid numbers
+            if (isNaN(num1) || isNaN(num2)) {
+                alert('Please enter valid numbers in both fields');
+                return;
+            }
+            
+            let result;
+            
+            // Perform the selected operation
+            switch(operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    if (num2 === 0) {
+                        alert('Cannot divide by zero');
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+            }
+            
+            // Display the result
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
