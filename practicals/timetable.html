@@ -1,290 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class Timetable - Practical 3</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f5f5f5;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Class Timetable - Practical 3</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background-color: #f5f5f5;
+    }
 
-        header {
-            background-color: #4a148c;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
+    header {
+      background-color: #4a148c;
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+    }
 
-        h1 {
-            margin: 0;
-        }
+    h1 {
+      margin: 0;
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: #4a148c;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: #4a148c;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-        .back-link:hover {
-            text-decoration: underline;
-        }
+    .back-link:hover {
+      text-decoration: underline;
+    }
 
-        .timetable-container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            overflow-x: auto;
-        }
+    .timetable-container {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      overflow-x: auto;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1.5rem;
-        }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: center;
-        }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
 
-        th {
-            background-color: #4a148c;
-            color: white;
-            font-weight: bold;
-        }
+    th {
+      background-color: #4a148c;
+      color: white;
+      font-weight: bold;
+    }
 
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
 
-        .break {
-            background-color: #e1bee7;
-            font-weight: bold;
-        }
+    .break {
+      background-color: #e1bee7;
+      font-weight: bold;
+    }
 
-        .cs101 {
-            background-color: #bbdefb;
-        }
+    footer {
+      background-color: #4a148c;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 2rem;
+    }
 
-        .math201 {
-            background-color: #c8e6c9;
-        }
-
-        .phy101 {
-            background-color: #ffecb3;
-        }
-
-        .eng102 {
-            background-color: #ffccbc;
-        }
-
-        .chem101 {
-            background-color: #d1c4e9;
-        }
-
-        .lab {
-            background-color: #b2dfdb;
-        }
-
-        .legend {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .color-box {
-            width: 20px;
-            height: 20px;
-            border: 1px solid #ddd;
-        }
-
-        .notes {
-            margin-top: 2rem;
-            background-color: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 5px;
-        }
-
-        .notes h3 {
-            margin-top: 0;
-            color: #4a148c;
-        }
-
-        footer {
-            background-color: #4a148c;
-            color: white;
-            text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            th, td {
-                padding: 8px;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      th, td {
+        padding: 8px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Class Timetable</h1>
-    </header>
+  <header>
+    <h1>Class Timetable</h1>
+  </header>
 
-    <div class="container">
-        <a href="../index.html#practicals" class="back-link">← Back to Portfolio</a>
+  <div class="container">
+    <a href="../index.html#practicals" class="back-link">← Back to Portfolio</a>
 
-        <div class="timetable-container">
-            <h2>Computer Science Engineering - Semester 3</h2>
-            <p>Academic Year 2023-24</p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Monday</th>
-                        <th>Tuesday</th>
-                        <th>Wednesday</th>
-                        <th>Thursday</th>
-                        <th>Friday</th>
-                        <th>Saturday</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>9:00 - 10:00</td>
-                        <td class="cs101">CS101<br>Data Structures</td>
-                        <td class="math201">MATH201<br>Discrete Mathematics</td>
-                        <td class="cs101">CS101<br>Data Structures</td>
-                        <td class="math201">MATH201<br>Discrete Mathematics</td>
-                        <td class="cs101">CS101<br>Data Structures</td>
-                        <td class="phy101">PHY101<br>Applied Physics</td>
-                    </tr>
-                    <tr>
-                        <td>10:00 - 11:00</td>
-                        <td class="phy101">PHY101<br>Applied Physics</td>
-                        <td class="cs101">CS101<br>Data Structures</td>
-                        <td class="eng102">ENG102<br>Technical Communication</td>
-                        <td class="phy101">PHY101<br>Applied Physics</td>
-                        <td class="math201">MATH201<br>Discrete Mathematics</td>
-                        <td class="eng102">ENG102<br>Technical Communication</td>
-                    </tr>
-                    <tr>
-                        <td>11:00 - 11:15</td>
-                        <td class="break" colspan="6">Short Break</td>
-                    </tr>
-                    <tr>
-                        <td>11:15 - 12:15</td>
-                        <td class="math201">MATH201<br>Discrete Mathematics</td>
-                        <td class="phy101">PHY101<br>Applied Physics</td>
-                        <td class="chem101">CHEM101<br>Environmental Science</td>
-                        <td class="eng102">ENG102<br>Technical Communication</td>
-                        <td class="chem101">CHEM101<br>Environmental Science</td>
-                        <td class="chem101">CHEM101<br>Environmental Science</td>
-                    </tr>
-                    <tr>
-                        <td>12:15 - 1:15</td>
-                        <td class="eng102">ENG102<br>Technical Communication</td>
-                        <td class="chem101">CHEM101<br>Environmental Science</td>
-                        <td class="math201">MATH201<br>Discrete Mathematics</td>
-                        <td class="cs101">CS101<br>Data Structures</td>
-                        <td class="phy101">PHY101<br>Applied Physics</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>1:15 - 2:00</td>
-                        <td class="break" colspan="6">Lunch Break</td>
-                    </tr>
-                    <tr>
-                        <td>2:00 - 4:00</td>
-                        <td class="lab">CS Lab<br>Data Structures</td>
-                        <td>-</td>
-                        <td class="lab">Physics Lab</td>
-                        <td>-</td>
-                        <td class="lab">Chemistry Lab</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>4:00 - 6:00</td>
-                        <td>-</td>
-                        <td class="lab">Programming Lab</td>
-                        <td>-</td>
-                        <td class="lab">Language Lab</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div class="legend">
-                <div class="legend-item">
-                    <div class="color-box cs101"></div>
-                    <span>CS101 - Data Structures</span>
-                </div>
-                <div class="legend-item">
-                    <div class="color-box math201"></div>
-                    <span>MATH201 - Discrete Mathematics</span>
-                </div>
-                <div class="legend-item">
-                    <div class="color-box phy101"></div>
-                    <span>PHY101 - Applied Physics</span>
-                </div>
-                <div class="legend-item">
-                    <div class="color-box eng102"></div>
-                    <span>ENG102 - Technical Communication</span>
-                </div>
-                <div class="legend-item">
-                    <div class="color-box chem101"></div>
-                    <span>CHEM101 - Environmental Science</span>
-                </div>
-                <div class="legend-item">
-                    <div class="color-box lab"></div>
-                    <span>Laboratory Sessions</span>
-                </div>
-                <div class="legend-item">
-                    <div class="color-box break"></div>
-                    <span>Breaks</span>
-                </div>
-            </div>
-            
-            <div class="notes">
-                <h3>Important Notes:</h3>
-                <ul>
-                    <li>Classes begin promptly at the scheduled time. Please be punctual.</li>
-                    <li>Laboratory sessions require proper lab attire and safety equipment.</li>
-                    <li>Attendance is mandatory for all classes and labs.</li>
-                    <li>This timetable is subject to change. Any modifications will be communicated via email.</li>
-                </ul>
-            </div>
-        </div>
+    <div class="timetable-container">
+      <h2>Computer Science Engineering - Semester IV</h2>
+      <p>Academic Year 2024-2025 (Spring)</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>11:00 AM - 12:00 PM</td>
+            <td>TOC (CMM)</td>
+            <td>AI (RAZ)</td>
+            <td>AI (RAZ)</td>
+            <td>AI (RAZ)</td>
+            <td>DCN (KPS)</td>
+            <td rowspan="3">Skill Development Program</td>
+          </tr>
+          <tr>
+            <td>12:00 PM - 01:00 PM</td>
+            <td>DCN (KPS)</td>
+            <td>M&ALP (RSM)</td>
+            <td>M&ALP (RSM)</td>
+            <td>M&ALP (RSM)</td>
+            <td>ENVS (RMK)</td>
+          </tr>
+          <tr>
+            <td>01:00 PM - 01:15 PM</td>
+            <td class="break" colspan="5">Break</td>
+          </tr>
+          <tr>
+            <td>01:15 PM - 02:15 PM</td>
+            <td colspan="5">OS(A)/DCN(B)/M&ALP(C)/C SKILL(D)</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>02:15 PM - 03:15 PM</td>
+            <td colspan="5">PKB / KPS / RSM / SBP</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>03:15 PM - 03:45 PM</td>
+            <td colspan="5" class="break">Recess</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>03:45 PM - 04:45 PM</td>
+            <td>Skill Development Program</td>
+            <td>TOC(T) (CMM)</td>
+            <td>OS (PKB)</td>
+            <td>OS (PKB)</td>
+            <td>TOC (CMM)</td>
+            <td>Skill Development Program</td>
+          </tr>
+          <tr>
+            <td>04:45 PM - 05:45 PM</td>
+            <td></td>
+            <td>Skill Development Program</td>
+            <td>DCN (KPS)</td>
+            <td>ENVS (RMK)</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>08:30 AM - 09:30 AM</td>
+            <td colspan="6">OS(D)/DCN(A)/M&ALP(B)/C SKILL(C)</td>
+          </tr>
+          <tr>
+            <td>09:30 AM - 10:30 AM</td>
+            <td colspan="6">PKB / KPS / RSM / SBP</td>
+          </tr>
+          <tr>
+            <td>10:30 AM - 10:45 AM</td>
+            <td colspan="6" class="break">Break</td>
+          </tr>
+          <tr>
+            <td>10:45 AM - 11:45 AM</td>
+            <td colspan="6">OS(D)/DCN(A)/M&ALP(B)/C SKILL(C)</td>
+          </tr>
+          <tr>
+            <td>11:45 AM - 12:45 PM</td>
+            <td colspan="6">PKB / KPS / RSM / SBP</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Subject & Faculty</h3>
+      <ul>
+        <li><strong>4KS01 - Artificial Intelligence</strong>: Dr. R. A. Zamare</li>
+        <li><strong>4KS02 - Data Communication & Networking</strong>: Prof. Ms. K. P. Sable</li>
+        <li><strong>4KS03 - Operating System</strong>: Dr. P. K. Bharne</li>
+        <li><strong>4KS04 - Microprocessor & Assembly Language Programming</strong>: Dr. R. S. Mahamune</li>
+        <li><strong>4KS05 - Theory of Computation</strong>: Prof. C. M. Mankar</li>
+        <li><strong>4ES06 - Environmental Studies</strong>: Dr. R. M. Kharate</li>
+      </ul>
+
+      <h3>Practicals</h3>
+      <ul>
+        <li><strong>4KS06 - DCN Lab</strong>: OOP Lab Section II</li>
+        <li><strong>4KS07 - OS Lab</strong>: OOP Lab Section I</li>
+        <li><strong>4KS08 - M&ALP Lab</strong>: DBMS Lab Section II</li>
+        <li><strong>4KS09 - C Skill – II Lab</strong>: DBMS Lab Section I</li>
+      </ul>
+
+      <div class="notes">
+        <h3>Important Notes:</h3>
+        <ul>
+          <li>Classes begin promptly at the scheduled time. Please be punctual.</li>
+          <li>Laboratory sessions require proper lab attire and safety equipment.</li>
+          <li>Attendance is mandatory for all classes and labs.</li>
+          <li>This timetable is subject to change. Any modifications will be communicated via email.</li>
+        </ul>
+      </div>
     </div>
+  </div>
 
-    <footer>
-        <p>&copy; 2023 Srujal Audarya | Practical 3: Class Timetable</p>
-    </footer>
+  <footer>
+    <p>&copy; 2023 Srujal Audarya | Practical 3: Class Timetable</p>
+  </footer>
 </body>
 </html>
